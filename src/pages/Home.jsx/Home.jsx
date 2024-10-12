@@ -6,6 +6,7 @@ import Features from "./Features";
 import Products from "./Products";
 import Services from "./Services";
 import Team from "./Team";
+import Testimonial from "./Testimonial";
 
 const Home = () => {
    return (
@@ -24,6 +25,8 @@ const Home = () => {
          <Team/>
          <TextArea category="Core Features" title="Why Choose Us" desc="The majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable." />
          <Features/>
+         <TextArea category="Testimonial" title="What Customer Says" desc="The majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable." />
+         <Testimonial/>
       </div>
    );
 };

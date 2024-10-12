@@ -14,10 +14,10 @@ const Features = () => {
             <h5 className='font-semibold text-[14px]'>Expert Team</h5>
          </div>
          <div className='text-center p-6 border shadow-[0px_0px_2px_0px] shadow-gray-300 space-y-2 bg-[#ff3811]'>
-            <div className='flex justify-center'>
+            <div className='flex justify-center py-6'>
                <FaRegClock className='text-5xl text-white'/>
             </div>
-            <h5 className='font-semibold text-[14px] pt-6 text-white'>Timely Delivery</h5>
+            <h5 className='font-semibold text-[14px]  text-white'>Timely Delivery</h5>
          </div>
          <div className='text-center p-6 border shadow-[0px_0px_2px_0px] shadow-gray-300 space-y-2'>
             <div className='flex justify-center'><img src={img_3} alt="" className='w-2/3' /></div>
