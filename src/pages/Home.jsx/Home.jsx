@@ -12,6 +12,7 @@ const Home = () => {
          <TextArea category="Services" title="Our Services Area" desc="The majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable."/>
          <Services/>
          <Details/>
+         <TextArea category="Popular Products" title="the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. "/>
       </div>
    );
 };
