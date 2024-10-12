@@ -12,4 +12,18 @@ a.active{
    padding: 10px 28px;
    display: inline-block;
    border-radius: 8px;
+   transition: 0.3s;
+}
+.btn_2{
+   color: #fff;
+   border: 2px solid #fff;
+   transition: 0.4s;
+}
+.btn_2:hover{
+   border: 2px solid #ff3811;
+   background:#ff3811;
+}
+.btn_1:hover{
+   background:#ff3811;
+   color: #fff;
 }
