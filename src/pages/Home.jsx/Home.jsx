@@ -2,6 +2,7 @@ import TextArea from "../../components/TextArea";
 import About from "./About";
 import Banner from "./Banner";
 import Details from "./Details";
+import Features from "./Features";
 import Products from "./Products";
 import Services from "./Services";
 import Team from "./Team";
@@ -21,6 +22,8 @@ const Home = () => {
          </div>
          <TextArea category="Team" title="Meet Our Team" desc="The majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable." />
          <Team/>
+         <TextArea category="Core Features" title="Why Choose Us" desc="The majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable." />
+         <Features/>
       </div>
    );
 };
