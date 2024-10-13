@@ -9,6 +9,7 @@ import Login from "../Auth/Login";
 import Register from "../Auth/Register";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import UserProfile from "../components/UserProfile";
+import CheckOut from "../components/CheckOut";
 
 const router = createBrowserRouter([
    {
@@ -47,6 +48,11 @@ const router = createBrowserRouter([
       {
          path:'/userProfile',
          element:<UserProfile/>
+      },
+      {
+         path:"/checkout/:id",
+         element:<CheckOut/>,
+         loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
       }
      ]
    },

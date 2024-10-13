@@ -6,10 +6,9 @@ const UserProfile = () => {
    return (
       <div className=" min-h-[calc(100vh-446px)] flex items-center justify-center">
          <div className="mx-auto border p-12 rounded-md">
-            {user.photoURL &&
                <div className="flex items-center justify-end pb-6">
-               <img src={user?.photoURL} alt="" className="w-24 rounded-md" />
-            </div>}
+                  <img src={user?.photoURL} alt="" className="w-24 rounded-md" />
+               </div>
 
             <div className="user-info text-gray-800">
                <div className="flex mb-2">

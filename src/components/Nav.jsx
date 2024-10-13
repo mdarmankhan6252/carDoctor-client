@@ -4,7 +4,7 @@ import { CiSearch, CiShoppingCart } from 'react-icons/ci';
 import { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 const Nav = () => {
-   const { user } = useContext(AuthContext)
+   const { user, logOut } = useContext(AuthContext)
    return (
       <nav className='flex items-center justify-between py-6'>
          <Link to='/'>
@@ -16,7 +16,9 @@ const Nav = () => {
             <NavLink to='/services'>Services</NavLink>
             <NavLink to='/blog'>Blog</NavLink>
             <NavLink to='/contact'>Contact</NavLink>
-            {user ? <Link to='/userProfile' className='text-[#FF3811] border-2 border-[#ff3811] rounded-md px-1'>{user?.displayName}</Link> :
+            {user ? <><Link to='/userProfile' className='text-[#FF3811] border-2 border-[#ff3811] rounded-md px-1'>{user?.displayName}</Link>
+            <span onClick={() => logOut()} className='bg-[#FF3811] text-white px-2 py-1 rounded-md cursor-pointer'>LogOut</span>
+            </> :
             <NavLink to='/register'>Register</NavLink>
             }
          </ul>
