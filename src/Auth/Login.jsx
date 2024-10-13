@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 
 const Login = () => {
    const navigate = useNavigate()
-   const { loginUser } = useContext(AuthContext)
+   const { loginUser, googleSignIn } = useContext(AuthContext)
    const handleLoginUser = e => {
       e.preventDefault()
       const form = e.target;
@@ -32,6 +32,11 @@ const Login = () => {
 
    }
 
+   const handleGoogleLogin = () =>{
+      googleSignIn()
+      navigate('/')
+   }
+
    return (
       <div className='flex items-center *:basis-1/2 gap-y-10 py-20 sm:flex-row flex-col'>
          <div>
@@ -46,7 +51,7 @@ const Login = () => {
             <input type="submit" value="Sign In" className='btn_1 cursor-pointer' />
             <p className='text-center py-3 font-semibold text-gray-600'>Or Sign Up with</p>
             <div className='flex items-center justify-center text-3xl space-x-5 *:cursor-pointer'>
-               <FcGoogle className='text-4xl' />
+               <FcGoogle onClick={handleGoogleLogin} className='text-4xl' />
                <VscGithubInverted />
             </div>
             <p className='text-[14px] pt-4 text-center'>Are You New Here ? <Link to='/register' className='font-semibold text-[#FF3811] hover:border-b-2 border-red-400'>Register</Link></p>

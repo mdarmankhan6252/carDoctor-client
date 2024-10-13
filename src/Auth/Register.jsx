@@ -7,7 +7,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 
 
 const Register = () => {
-   const { createUser, setUser,logOut, updateUserProfile } = useContext(AuthContext)
+   const { createUser, setUser,logOut, updateUserProfile, googleSignIn } = useContext(AuthContext)
    const navigate = useNavigate()
 
    const handleCreateUser = e =>{
@@ -33,6 +33,11 @@ const Register = () => {
       
    }
 
+   const handleGoogleLogin = () =>{
+      googleSignIn()
+      navigate('/')
+   }
+
    return (
       <div className='flex items-center *:basis-1/2 gap-y-10 py-20 sm:flex-row flex-col'>
          <div>
@@ -49,7 +54,7 @@ const Register = () => {
             <input type="submit" value="Sign Up" className='btn_1 cursor-pointer' required/>
             <p className='text-center py-3 font-semibold text-gray-600'>Or Sign Up with</p>
             <div className='flex items-center justify-center text-3xl space-x-5 *:cursor-pointer'>
-               <FcGoogle className='text-4xl' />
+               <FcGoogle onClick={handleGoogleLogin} className='text-4xl' />
                <VscGithubInverted />
             </div>
             <p className='text-[14px] pt-4 text-center'>Already Have An Account ? <Link to='/login' className='font-semibold text-[#FF3811] hover:border-b-2 border-red-400'>Login</Link></p>

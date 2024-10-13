@@ -1,7 +1,10 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo.svg'
 import { CiSearch, CiShoppingCart } from 'react-icons/ci';
+import { useContext } from 'react';
+import { AuthContext } from '../Provider/AuthProvider';
 const Nav = () => {
+   const { user } = useContext(AuthContext)
    return (
       <nav className='flex items-center justify-between py-6'>
          <Link to='/'>
@@ -13,11 +16,13 @@ const Nav = () => {
             <NavLink to='/services'>Services</NavLink>
             <NavLink to='/blog'>Blog</NavLink>
             <NavLink to='/contact'>Contact</NavLink>
+            {user ? <Link to='/userProfile' className='text-[#FF3811] border-2 border-[#ff3811] rounded-md px-1'>{user?.displayName}</Link> :
             <NavLink to='/register'>Register</NavLink>
+            }
          </ul>
          <div className='flex items-center space-x-6'>
-            <CiShoppingCart className='text-3xl'/>
-            <CiSearch className='text-3xl'/>
+            <CiShoppingCart className='text-3xl' />
+            <CiSearch className='text-3xl' />
             <button className='btn_1'>Appointment</button>
          </div>
       </nav>
