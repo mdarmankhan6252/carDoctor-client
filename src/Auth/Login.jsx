@@ -1,7 +1,7 @@
 import { VscGithubInverted } from 'react-icons/vsc';
 import img_1 from '../assets/images/login/login.svg'
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
@@ -10,6 +10,10 @@ import Swal from 'sweetalert2';
 const Login = () => {
    const navigate = useNavigate()
    const { loginUser, googleSignIn } = useContext(AuthContext)
+   const location = useLocation();
+   console.log(location);
+
+
    const handleLoginUser = e => {
       e.preventDefault()
       const form = e.target;
@@ -18,7 +22,8 @@ const Login = () => {
       loginUser(email, password)
       .then(result =>{
          console.log(result.user);
-         navigate('/')
+         // navigate(location?.state ? location?.state : '/' )
+         
          Swal.fire({
             icon: "success",
             title: "Welcome",
@@ -34,7 +39,13 @@ const Login = () => {
 
    const handleGoogleLogin = () =>{
       googleSignIn()
-      navigate('/')
+      navigate(location?.state ? location?.state : '/' )
+      Swal.fire({
+         icon: "success",
+         title: "Welcome",
+         showConfirmButton: false,
+         timer: 1500
+       });
    }
 
    return (
