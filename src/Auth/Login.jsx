@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 
 const Login = () => {
@@ -20,32 +21,44 @@ const Login = () => {
       const email = form.email.value;
       const password = form.password.value;
       loginUser(email, password)
-      .then(result =>{
-         console.log(result.user);
-         // navigate(location?.state ? location?.state : '/' )
-         
-         Swal.fire({
-            icon: "success",
-            title: "Welcome",
-            showConfirmButton: false,
-            timer: 1500
-          });
-      })
-      .then(err =>{
-         console.log(err);
-      })
+         .then(result => {
+            console.log(result.user);
+           
+            const user = {email}
+            // console.log(user);
+            axios.post('http://localhost:5000/jwt', user,{
+               withCredentials:true
+            })
+            .then(res =>{
+               console.log(res.data);
+               if(res.data.success){
+                  navigate(location?.state ? location?.state : '/' )
+               }
+            })
+            
+
+            Swal.fire({
+               icon: "success",
+               title: "Welcome",
+               showConfirmButton: false,
+               timer: 1500
+            });
+         })
+         .then(err => {
+            console.log(err);
+         })
 
    }
 
-   const handleGoogleLogin = () =>{
+   const handleGoogleLogin = () => {
       googleSignIn()
-      navigate(location?.state ? location?.state : '/' )
+      navigate(location?.state ? location?.state : '/')
       Swal.fire({
          icon: "success",
          title: "Welcome",
          showConfirmButton: false,
          timer: 1500
-       });
+      });
    }
 
    return (

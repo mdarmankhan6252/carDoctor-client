@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const MyCheckouts = () => {
 
@@ -10,12 +11,16 @@ const MyCheckouts = () => {
    const url = `http://localhost:5000/checkouts?email=${user?.email}`
 
    useEffect(() => {
-      fetch(url)
-         .then(res => res.json())
-         .then(data => {
-            console.log(data);
-            setCheckouts(data)
-         })
+      // fetch(url)
+      //    .then(res => res.json())
+      //    .then(data => {
+      //       console.log(data);
+      //       setCheckouts(data)
+      //    })
+      axios.get(url, {withCredentials:true})
+      .then(res =>{
+         setCheckouts(res.data)
+      })
    }, [url])
 
    const handleDelete = id => {

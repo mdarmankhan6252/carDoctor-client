@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import SharedBanner from "./SharedBanner";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
@@ -9,8 +9,10 @@ const CheckOut = () => {
    const service = useLoaderData();
    const { title, price, _id, img } = service;
    const { user } = useContext(AuthContext)
+   const navigate = useNavigate()
 
    const handleCheckOutService = e => {
+      
       e.preventDefault()
       const form = e.target;
       const name = form.name.value;
@@ -47,6 +49,7 @@ const CheckOut = () => {
                   timer: 1500
                });
                form.reset()
+               navigate('/myCheckout')
             }
          })
 
