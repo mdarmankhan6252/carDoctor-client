@@ -8,7 +8,7 @@ const MyCheckouts = () => {
    const { user } = useContext(AuthContext)
    const [checkouts, setCheckouts] = useState([])
 
-   const url = `http://localhost:5000/checkouts?email=${user?.email}`
+   const url = `https://car-doctor-server-woad-theta.vercel.app/checkouts?email=${user?.email}`
 
    useEffect(() => {
       // fetch(url)
@@ -34,7 +34,7 @@ const MyCheckouts = () => {
          confirmButtonText: "Yes, delete it!"
       }).then((result) => {
          if (result.isConfirmed) {
-            fetch(`http://localhost:5000/checkouts/${id}`, {
+            fetch(`https://car-doctor-server-woad-theta.vercel.app/checkouts/${id}`, {
                method:'DELETE'
             })
                .then(res => res.json())
@@ -57,7 +57,7 @@ const MyCheckouts = () => {
 
    const handleUpdateStatus = id =>{
 
-      fetch(`http://localhost:5000/checkouts/${id}`, {
+      fetch(`https://car-doctor-server-woad-theta.vercel.app/checkouts/${id}`, {
          method:'PATCH',
          headers:{
             'content-type' : 'application/json'
@@ -65,8 +65,8 @@ const MyCheckouts = () => {
          body: JSON.stringify({status : 'confirm'})
       })
       .then(res => res.json())
-      .then(data => {
-         console.log(data)
+      .then(() => {
+         // console.log(data)
          const remaining = checkouts.filter(checkout => checkout._id !== id)
          const updated = checkouts.find(checkout => checkout._id === id);
          updated.status = 'confirm'

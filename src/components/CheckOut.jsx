@@ -31,7 +31,7 @@ const CheckOut = () => {
          service: _id,
       }
 
-      fetch('http://localhost:5000/checkouts', {
+      fetch('https://car-doctor-server-woad-theta.vercel.app/checkouts', {
          method:'POST', 
          headers:{
             'content-type' : 'application/json'
@@ -40,7 +40,6 @@ const CheckOut = () => {
       })
          .then(res => res.json())
          .then(data => {
-            console.log(data);
             if (data.insertedId) {
                Swal.fire({
                   icon: "success",
